@@ -1,2 +1,2 @@
 # teamcobra
-HACC repository for "Team Cobra"
+Cuz we code brah. 

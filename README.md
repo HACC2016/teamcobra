@@ -1,12 +1,16 @@
-# teamcobra
-Cuz we code brah. 
+# OHAI
+###### Our Homeless Application Idea for HACC 2016
+###### Created by Kim Vo, Arun Lee, Jayson Le, Kyle Loo
+###### www.ohai-app.com
 
-9/11/2016
-We're currently swimming in coffee.... it's 12:56am... We've been coding since 10am. If anyone reads this, would you be so kind as to donate us a lovely care package. 
+### How to view our app
+* Install Ionic View on onto your phone via appstore.
+* Use App ID: 1666982c
 
-Food and cake would be preffered. 
-
-
-we are so tired..
-
-SQUIRRRELLL!!!
+### How to run this repository
+* Clone the repository 
+* Install Node.js
+* In node js command line  ```$ npm install -g cordova ionic``` 
+* In a command line move to the project directory and run ```ionic serve```
+* A window should open in your default browswer with the application running
+* We recommend that you resize your window to simulate a mobile device

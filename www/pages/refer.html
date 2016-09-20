@@ -1,0 +1,212 @@
+<ion-view title="Refer" id="page2">
+<ion-tabs class="tabs-striped refer-nav tabs-icon-top tabs-top" scroll="true">
+
+
+  <!------------------------ TAB FOR THE MAP ------------------------>
+
+  <ion-tab title="Location" icon-on="ion-ios-navigate" icon-off="ion-ios-navigate-outline">
+      <ion-content padding="false" class="has-header has-tabs-top" scroll="false">
+      
+        <div class="map-refer-con">
+          <div id="refermap" data-tap-disabled="true"></div>
+           
+            <div ng-class="animationbutt123" ng-click="showActionsheet()" class="mappin-div"><img class="pinhome2" src="img/map/theirlocation.png" /></div>
+            
+        </div>
+
+        
+        <div onclick="myLocation();" class="mylocationbutton"><i class="ion-navigate locationicon"></i></div>
+        
+      </ion-content>
+  </ion-tab>
+  
+  
+  <!------------------------ TAB FOR THE CAMERA ------------------------>
+  
+  <ion-tab title="Images" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline">
+      <ion-content padding="false" class="has-header" scroll="false">
+      
+        <!-- EDIT CONTENT HERE -->
+        <div>
+          <button class="button camera-button" id="camera-button1" ng-click="takePic()">Take a Picture</button>
+        </div>
+        
+        <div class="cam-imagecontainer">
+          <img class="cameraimage" ng-src="{{picture}}">
+          <div class="nophoto">
+            <span>
+                  Take a photo using the button above
+            <br />or leave this field blank.
+            <br />
+            <br />Please remember to be respectful
+            <br />when taking a photo.
+            <br />
+            <br />The State of Hawai'i allows
+            <br />non-commercial photography
+            <br />in public locations.
+            </span>
+          </div>
+        </div>
+          
+        <!-- END CONTENT -->
+    
+    </ion-content>
+  </ion-tab> 
+  
+  
+  <!------------------------ TAB FOR THE FORMS ------------------------>
+  
+  <ion-tab title="Info" icon-on="ion-ios-list" icon-off="ion-ios-list-outline">
+      <ion-content padding="true" class="has-header" scroll="true">
+      
+        <!-- EDIT CONTENT HERE -->
+        
+        
+        <span class="referpagetext">I am refering</span>
+        
+        <div class="button-bar refer-people">
+          <a ng-class="personButton" class="button refer-peoplebutton" ng-click="showPersonPage()">An Individual</a>
+          <a ng-class="peopleButton" class="button refer-peoplebutton" ng-click="showPeoplePage()">A Group</a>
+        </div>
+          
+          <!-- INDIVIDUAL'S FORM -->
+          
+        <div ng-show="indform" class="list referform"> 
+            
+          <label class="item item-input item-stacked-label">
+              <span class="input-label" >Their Name (if available)</span>
+            <input ng-model="inputName" ng-blur="saveName(inputName)" type="text" placeholder="John Doe" />
+          </label>
+          
+          
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Their Gender</span>
+            <ion-list ng-class="gend-valid">
+              <ion-radio name="gender" ng-model="gendChoice" ng-click="saveGender('F')">Female</ion-radio>
+              <ion-radio name="gender" ng-model="gendChoice" ng-click="saveGender('M')">Male</ion-radio>
+            </ion-list>
+          </label>
+		  <label class="item item-input item-stacked-label">
+            <span class="input-label">Environment</span>
+            <ion-list ng-class="env1-valid">
+              <ion-radio name="envir" ng-model="envChoice" ng-click="saveEnv('indoor')">Indoors</ion-radio>
+              <ion-radio name="envir" ng-model="envChoice" ng-click="saveEnv('outdoor')">Outdoors</ion-radio>
+            </ion-list>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Age Group</span>
+            <ion-list ng-class="inv1-valid">
+              <ion-radio name="agegrp" ng-model="invChoice" ng-click="saveInv('child')">Child</ion-radio>
+			  <ion-radio name="agegrp" ng-model="invChoice" ng-click="saveInv('adult')">Adult (18+)</ion-radio>
+            </ion-list>
+          </label>  
+          <label class="item item-input item-stacked-label refer-infolabel">        
+          <span class="input-label">MORE INFORMATION</span>
+            </label>      
+              
+          <label class="item item-input item-staced-label refer-infofield">
+            <textarea ng-model="inputDesc" ng-blur="saveDesc(inputDesc)" rows="8" placeholder="Please describe the circumstance of the person."></textarea>
+          </label>
+		  
+		  <img ng-src="http://ets.hawaii.gov/wp-content/uploads/2015/05/Todd-Nacapuy.jpg" class="img-responsive img-thumbnail" ng-show="inputName == 'Todd'">
+          
+        </div> 
+          
+          
+        <!-- GROUP FORM -->
+          
+        <div ng-show="groupform" class="list referform">
+		<label class="item item-input item-stacked-label">
+		<span class="input-label">Number of Adults</span>
+		<input ng-class="na-valid" ng-model="inputAdult" type="number"/>
+		</label>
+		<div ng-show="!isNumberAdl(inputAdult)">
+			<p style="color:red;">*Adult input is not a Number or is Empty, Please verify input</p>
+		</div>    
+        
+		<label class="item item-input item-stacked-label">
+		<span class="input-label">Number of Children</span>
+		<input ng-class="nc-valid" ng-model="inputChild" type="number"/>
+		</label>
+		<div ng-show="!isNumberChd(inputChild)">
+			<p style="color:red;" >*Child input is not a Number or is Empty, Please verify input</p>
+		</div> 
+		<label class="item item-input item-stacked-label">
+		<span class="input-label">Environment</span>
+		<ion-list ng-class="env-valid">
+		  <ion-radio name="envir2" ng-model="envGrpChoice" ng-click="saveEnv('Indoor')">Indoors</ion-radio>
+		  <ion-radio name="envir2" ng-model="envGrpChoice" ng-click="saveEnv('Outdoor')">Outdoors</ion-radio>
+		</ion-list>
+		</label>
+		<label class="item item-input item-stacked-label refer-infolabel">
+		<span class="input-label">MORE INFORMATION</span>
+		</label>
+
+		<label class="item item-input item-staced-label refer-infofield">
+		<textarea ng-model="inputDesc" ng-blur="saveDesc(inputDesc)" rows="8" placeholder="Please describe the circumstance of the person."></textarea>
+		</label>
+		
+		<!-- show if our function evaluates to false -->
+		  
+          
+        </div>
+
+        <!-- END CONTENT -->
+    
+    </ion-content>
+      
+  </ion-tab>
+  
+  
+  <!------------------------ TAB FOR THE SUBMIT ------------------------>
+  
+  <ion-tab title="Submit" icon-on="ion-checkmark" icon-off="ion-checkmark" class="tabsubmitbutton">
+    <ion-content padding="true" class="has-header submitform" scroll="false">
+    
+      <!-- EDIT CONTENT HERE -->
+      <div class="submitinfo">
+        <p>Your contact information is not required, <b>but preffered.</b></p> <br>
+        
+        <p>By entering your details and location, our staff will be notified of the person in need and will arrange help. To ensure all requests for assistance are genuine please allow us to collect your contact information.</p><br>
+        
+        <!-- Gather User Information -->
+        <ion-list>
+          <ion-checkbox class="allowbut" ng-model="filter.red" ng-change="userInfoWindow()">Allow us to collect your information</ion-checkbox>
+        </ion-list>
+        <div ng-show="userWindow" class="list referform">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Your Email Address</span>
+            <input ng-model="inputEmail" ng-blur="saveEmail(inputEmail)" type="text" placeholder="example@example.com" />
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Your Phone Number</span>
+            <input ng-model="inputPhone" ng-blur="savePhone(inputPhone)" type="text" placeholder="808-123-4567" />
+          </label>
+        </div>
+      <!-- Form validation warnings -->  
+      </div>
+      <div ng-show="!hasPop()">
+			<p style="color:red;">*Group selected without Number of population, Please verify before Submission</p>
+	  </div>
+	  <div ng-show="!hasLoc()">
+			<p style="color:red;">*Turn on your location in settings bro</p>
+	  </div>
+      <!-- <a ng-click='submitForm()' >Submit</a> -->
+      <br>
+      
+      <div ng-class="submitPrompt" class="submitcomplete submitinfo">Thank you <br> your referral has been submitted.</div>
+      
+      <a ng-show="isValid()" ng-click='submitForm()'>
+        <div class="bar bar-footer finsubmitbutton">
+          <div class="submit-text">SUBMIT INFORMATION</div>
+        </div>
+      </a>
+      <!-- END CONTENT -->
+  
+    </ion-content>
+  </ion-tab>
+
+</ion-tabs>
+
+</ion-view>
+

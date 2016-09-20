@@ -1,0 +1,74 @@
+ <ion-view view-title="Intro" hide-nav-bar="true" class="introcolor">
+	<div class="intronav">
+        <div class="intronav-left">
+	  <button class="button button-clear no-animation blue"
+			  ng-click="startApp()" ng-show="!slideIndex">
+		Skip
+	  </button>
+	  <button class="button button-clear no-animation blue"
+			  ng-click="previous()" ng-show="slideIndex > 0">
+		Previous
+	  </button>
+	   </div>
+	
+        <div class="intronav-right">
+	  <button class="button button-clear no-animation blue"
+			  ng-click="next()" ng-show="slideIndex != 2">
+		Next
+	  </button>
+	  <button class="button button-clear no-animation blue"
+			  ng-click="startApp()" ng-show="slideIndex == 2">
+		Start
+	  </button>
+            </div>
+	</div>
+     
+     
+	<ion-slide-box on-slide-changed="slideChanged(index)" class="introslides">
+	  <ion-slide class="has-header slidecontent">
+          <div class="slidecenter">
+		<div id="logo">
+		  <img class="introimg" src="img/ohai.png">
+		</div>
+          
+          <p class="introheader">Welcome to OHAI</p>
+		<p class="slidetext">
+		  An end to end solution for assisting and improving the lives of homeless individuals.
+		</p>
+              </div>
+	  </ion-slide>
+	  
+        
+        <ion-slide class="has-header slidecontent">
+          <div class="slidecenter">
+		<div id="logo">
+		  <img class="introimg" src="img/referral.png">
+		</div>
+          
+          <p class="introheader">Make a Referral</p>
+		<p class="slidetext">
+		  You can provide outreach teams with valuable information to locate and assist the individual. 
+		</p>
+              </div>
+	  </ion-slide>
+
+        
+                <ion-slide class="has-header slidecontent">
+          <div class="slidecenter">
+		<div id="logo">
+		  <img class="introimg" src="img/events.png">
+		</div>
+          
+          <p class="introheader">Volunteer Opportunities</p>
+		<p class="slidetext">
+		  To be more involved, sign up for volunteering opportunities on our events page!
+		</p>
+              <button class="button button-clear no-animation blue enterbutton"
+			  ng-click="startApp()" ng-show="slideIndex == 2">
+		ENTER OHAI
+	  </button>
+              
+              </div>
+	  </ion-slide>
+	</ion-slide-box>
+</ion-view>

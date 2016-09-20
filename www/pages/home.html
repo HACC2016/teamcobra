@@ -1,0 +1,69 @@
+<ion-view title="Welcome" id="page1">
+
+    
+    <ion-content padding="false" class="has-header" scroll="false">
+        
+        
+        <!-- Place google maps within div -->
+        
+        
+        
+        
+        <div class="map-home">
+           
+            
+            <ion-slide-box show-pager= "false" class="homeslider" on-slide-changed="slideHasChanged($index)">
+              <ion-slide>
+                <div class="slideheight">
+                    
+                    
+        <div class="homeslider-image">
+                <div class="homeslider-text">
+                    Make a <br>difference <span class="sliderinfo">Today.</span>
+                </div>
+              <div class="sliderimagecontainer"><img class="slider-bg" src="img/slider/image1.jpg"/></div>
+        </div>
+                    
+                    
+                  </div>
+              </ion-slide>
+              <ion-slide>
+                  <ion-content scroll="true">
+                      
+				<div class='listviewstyle' ng-repeat="story in stories">
+							<div class="homesuccess"><img class="homesuccess-image" src="{{story.imgurl}}"></div>
+							<p class="storyname">{{story.name}}</p>
+							<p class="storystory">{{story.story}}</p>
+                    
+				</div>
+                </ion-content>
+              </ion-slide>
+            </ion-slide-box>
+            
+            
+        </div>
+        
+        <a ui-sref="menu.refer" id="home-button1" class="map-home-button"><span>MAKE A REFERRAL</span></a>
+        
+        
+        <!-- Button to REFER -->
+        
+        
+        <!-- Place google maps within div -->
+        <!-- <div class="home-buttons">
+        <a ui-sref="menu.refer" id="home-button1" class="home-navbutton"><span>CLICK HERE TO REFER SOMEONE</span></a>
+        <a ui-sref="menu.refer" id="home-button1" class="home-navbutton"><span>CLICK HERE TO REFER SOMEONE</span></a>
+        </div> -->
+    
+        <div class="home-buttons">
+          <a ui-sref="menu.about" id="home-button1" class="home-navbuttons navone"><div class="homebutcent"><i class="ion-ios-paper homebuttonicon"></i><br><span>News</span></div></a>
+            <a ui-sref="menu.resources" id="home-button1" class="home-navbuttons navtwo"><div class="homebutcent"><i class="ion-ios-heart homebuttonicon"></i><br><span>Locate Help</span></div></a>
+        </div>
+        
+        <div class="home-buttons">
+            <a ui-sref="menu.getinvolved" id="home-button1" class="home-navbuttons navthree"><div class="homebutcent"><i class="ion-android-contacts homebuttonicon"></i><br><span>Get Involved</span></div></a>
+            <a ui-sref="menu.events" id="ome-button1" class="home-navbuttons navfour"><div class="homebutcent"><i class="ion-ios-calendar homebuttonicon"></i><br><span>Events</span></div></a>
+        </div>
+        
+    </ion-content>
+</ion-view>

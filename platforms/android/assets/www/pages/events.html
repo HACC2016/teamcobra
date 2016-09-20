@@ -1,0 +1,70 @@
+<ion-view title="Events" id="page6">
+    
+     <div class="eventhighlight has-header">
+                <div class="event-text-box">
+                    <span class="eventhighlight-text">OCTOBER 8-16</span>
+                    <span class="eventhighlight-info"><b>WET'N'WILD</b> <br> Discounted Admissions</span>
+                </div>
+              <div class="getinimagecontainer"><img class="eventhighlight-image" src="img/imgs/event.jpg"/></div>
+        </div>
+    
+    <div class="has-highlight1">
+        <ion-list>
+        <ion-item class="item item-text-wrap dateselector">
+            
+            <div class="datebutton activebutton">TODAY <br> 9/9</div>
+            <div class="datebutton">SAT<br> 9/10</div>
+            <div class="datebutton">SUN<br> 9/11</div>
+            <div class="datebutton">MON<br> 9/12</div>
+            
+        </ion-item>
+            </ion-list>
+    </div>
+    <ion-content padding="false" class="has-header has-highlight" scroll="true">
+    
+        
+<!---- LIST FOR DATA         
+<ion-list>
+
+         <ion-item ng-repeat="item in items" class="item item-text-wrap">
+          <div ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.text }}</p>
+          </div>
+          <div ng-click="toggleItem(item)" class="item-expand-footer">
+            <i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+            {{ isItemShown(item) ? 'Less' : 'More' }}
+          </div>
+        </ion-item>
+
+      </ion-list>
+--->
+        
+               <ion-list>
+                   
+
+         <ion-item ng-repeat="item in items" class="item item-text-wrap">
+            
+          <div ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
+            
+               <div ng-click="toggleItem(item)" class="item-expand-footer">
+             <i ng-class="isItemShown(item) ? 'ion-minus' : 'ion-plus'"></i>
+            {{ isItemShown(item) ? 'Less' : 'More' }}
+          </div>
+              
+            <h2>{{ item.time }}</h2>
+            <h2>{{ item.title }}</h2>
+            
+            <div class="expandedcontent">
+            <p><span>DATE </span>{{ item.date }}</p>
+            <p><span>LOCATION </span>{{ item.location }}</p>
+            <p>{{ item.text }}</p>
+            </div>
+          </div>
+        </ion-item>
+
+      </ion-list>
+        
+    
+    </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view title="Kauhale" id="page3">
+      <ion-content padding="false" ng-controller="aboutCtrl" ng-init="init()">
+    
+          
+          
+        <div class="newsfeed">
+      <div class="newsfeed-item" ng-repeat="entry in entries">
+            
+          <div class="news-containerBox">
+                <div class="news-text-box">
+                     <span class="newstype">{{entry.author}}</span>
+                    <span class="newstitle">{{entry.title}}</span>
+                </div>
+              <div class="imagecontainer"><img class="img-responsive" src="{{getPhoto(entry)}}"/></div>
+            </div>
+          
+          <div class="news-content">
+              
+            <span ng-bind-html="entry.contentSnippet"></span> <br>
+          
+              <a class="news-readbutton" ng-href="{{entry.link}}" ng-click="window.open(this.href, '_blank', 'location=yes'); return false;">View on website</a>
+          </div>
+          
+      </div>
+    </div>
+</ion-content>
+</ion-view>

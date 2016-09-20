@@ -1,0 +1,27 @@
+<ion-view title="Recent News" id="page3">
+      <ion-content padding="false" ng-controller="aboutCtrl" ng-init="init()">
+    
+          
+          
+        <div class="newsfeed">
+      <div class="newsfeed-item" ng-repeat="entry in entries">
+            
+          <div class="news-containerBox">
+                <div class="news-text-box">
+                     <span class="newstype">{{entry.author}}</span>
+                    <span class="newstitle">{{entry.title}}</span>
+                </div>
+              <div class="imagecontainer"><img class="img-responsive" src="{{getPhoto(entry)}}"/></div>
+          </div>
+          
+          <div class="news-content">
+              
+            <span ng-bind-html="entry.contentSnippet"></span> <br>
+          
+              <a ng-click="appRedirect('{{entry.link}}')" class="news-readbutton">View on website</a>
+          </div>
+          
+      </div>
+    </div>
+</ion-content>
+</ion-view>

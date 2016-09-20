@@ -14,3 +14,4 @@
 * In a command line move to the project directory and run ```ionic serve```
 * A window should open in your default browswer with the application running
 * We recommend that you resize your window to simulate a mobile device
+* For map functionaly, provide your own google map api key into the ```index.html``` line 48

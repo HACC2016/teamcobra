@@ -1,0 +1,87 @@
+<ion-view title="Resources" id="page4">
+    <ion-content padding="false" class="has-header" scroll="false">
+   
+        <div class="resource-toolbar">
+        <button ng-click="toggleResources()" ng-class="resourcesButton" class="r-resourcelist"> Resource List</button>
+        
+        <button ng-click="toggleSearch()" ng-class="searchButton" class="r-searchbutton"><i class="ion-ios-search"></i> Search</button>
+        
+        
+        <button ng-click="toggleList()" ng-class="listButton" class="r-listview"><i class="ion-ios-list-outline"></i></button>
+        </div>
+        
+        <!-- MAP -->
+        <div class="map-resource">
+        <div id="resourcemap" data-tap-disabled="true"></div>
+        </div>
+        <div onclick="myLocation();" class="mylocation-resources"><i class="ion-navigate locationicon"></i></div>
+        
+
+        
+        <!-- SEARCH BOX -->
+        <div class="resource-options" ng-class="searchBar">
+    
+          <div class="resource-row search-container">
+            
+            <div class="searchbox">
+              <label class="item item-input rsearchcontainer">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input id="searchMarkervalue" ng-model="searchMarker" ng-change="filterMarkers('S')" type="text" placeholder="Search" />
+              </label>
+            </div>
+            <button ng-click="toggleSearch()" ng-click="filterMarkers('All');" class="r-searchbox-but">DONE</button>
+        
+          </div>
+        </div>
+        <!-- RESOURCE BOX -->
+        <div class="resource-options fullheight" ng-class="resourcesBar">
+           
+            <div class="resource-row">
+            <button ng-click="toggleResources();filterMarkers('All')" class="resource-button rbutton1">All Categories</button>
+            <button ng-click="toggleResources();filterMarkers('food')"  class="resource-button rbutton2"><i class="icon ion-coffee resourceicons"></i> Food Resources</button>
+            </div>
+        
+            <div class="resource-row">
+            <button ng-click="toggleResources();filterMarkers('medicine')"  class="resource-button rbutton3"><i class="icon ion-medkit resourceicons"></i>Medical Care</button>
+            <button ng-click="toggleResources();filterMarkers('shelter')"  class="resource-button rbutton4"><i class="icon ion-home resourceicons"></i>Shelters</button>
+            </div>
+            
+        </div>
+		<!-- LIST VIEW BOX -->
+        <div class="resource-options-list" ng-class="listBar">
+            
+			<div class ="searchlistviewcontainer">
+                <div class="resource-options searchlist">
+    
+          <div class="resource-row search-container">
+            
+            <div class="searchbox">
+              <label class="item item-input rsearchcontainer">
+                <i class="icon ion-search placeholder-icon"></i>
+				<input type="text" class="search" ng-model="searchString" placeholder="Enter your search terms" />
+              </label>
+            </div>
+            <button ng-click="toggleList()" ng-click="filterMarkers('All');" class="r-searchbox-but">DONE</button>
+        
+          </div>
+        </div>
+					<ul id="listContainer">
+						<li class='listviewstyle' ng-repeat="marker in listMarkers | searchFor:searchString">
+							<span>{{marker.name}}</span>
+							<p>{{marker.address}}</p>
+							<p>{{marker.hours}}</p>
+							<p>{{marker.phone}}</p>
+							<p><a href="{{marker.website}}">Visit Website</a>
+							<button ng-click="toggleList(); gotoLocation({{marker.lat}},{{marker.lng}})" class="listmapbutton">View on Map</button>
+							</p>
+						</li>
+					</ul>
+	    </div>
+            
+            
+        </div>
+        
+        
+        
+    </ion-content>
+</ion-view>

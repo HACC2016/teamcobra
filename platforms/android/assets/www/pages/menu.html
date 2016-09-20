@@ -1,0 +1,53 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="side-menu21"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" class="shadowmenu" id="side-menu21">
+        <ion-header-bar class="bargreen">
+            <div class="side-menu-header">KAUHALE <span>Hawaii's <b>Homeless Initiative</b> Mobile App</span></div>
+        </ion-header-bar>
+        <ion-content padding="false" class="side-menu-left has-header-side" scroll="false">
+            <ion-list id="menu-null">
+                <ion-item id="menu-list-home" ui-sref="menu.home" menu-close="" class="sidemenu-list">Home</ion-item>
+                <ion-item id="menu-list-about" ui-sref="menu.about" menu-close="" class="sidemenu-list">Kauhale</ion-item>
+                <ion-item id="menu-list-refer" ui-sref="menu.refer" menu-close="" class="sidemenu-list">Refer</ion-item>
+                <ion-item id="menu-list-resources" ui-sref="menu.resources" menu-close="" class="sidemenu-list">Resources</ion-item>
+                <ion-item id="menu-list-volunteer" ui-sref="menu.volunteer" menu-close="" class="sidemenu-list">Volunteer</ion-item>
+                <ion-item id="menu-list-events" ui-sref="menu.events" menu-close="" class="sidemenu-list">Events</ion-item>
+                <ion-item id="menu-list-contact" ui-sref="menu.contact" menu-close="" class="sidemenu-list">Contact</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+    
+    
+    <!--
+    <ion-side-menu side="right" class="shadowmenu resource" id="side-menu21" drag-content="false">
+        <ion-header-bar class="bargreen">
+            <div class="side-menu-header side-menu-header-right">Resources <span>Find what you're looking for!</span></div>
+        </ion-header-bar>
+        <ion-content padding="false" class="side-menu-right has-header-side-right" scroll="false">
+            
+            <div class="list list-inset">
+              <label class="item item-input resource-search">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+              </label>
+            </div>
+            
+            <ion-list id="resource-list">
+                <ion-item id="menu-list-home" ui-sref="#" menu-close="" class="resource-item">All Categories</ion-item>
+
+                <ion-item id="menu-list-resources" ui-sref="menu.food" ng-click="ftResources()" menu-close="" class="resource-item"><i class="icon ion-coffee resourceicons"></i> Food Resources</ion-item>
+                <ion-item id="menu-list-volunteer" ui-sref="menu.medical" menu-close="" class="resource-item"><i class="icon ion-medkit resourceicons"></i>Medical Care</ion-item>
+                <ion-item id="menu-list-events" ui-sref="menu.shelter" menu-close="" class="resource-item"><i class="icon ion-home resourceicons"></i>Shelters</ion-item>
+
+            </ion-list>
+        </ion-content>
+    </ion-side-menu> -->
+</ion-side-menus> 

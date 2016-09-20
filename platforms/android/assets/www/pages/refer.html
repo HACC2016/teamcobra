@@ -1,0 +1,173 @@
+<ion-view title="Refer" id="page2">
+<ion-tabs class="tabs-striped refer-nav tabs-icon-top tabs-top" scroll="true">
+
+
+  <!------------------------ TAB FOR THE MAP ------------------------>
+
+  <ion-tab title="Location" icon-on="ion-ios-navigate" icon-off="ion-ios-navigate-outline">
+      <ion-content padding="false" class="has-header has-tabs-top" scroll="false">
+      
+        <div class="map-refer-con">
+          <div id="refermap" data-tap-disabled="true"></div>
+           
+            <div ng-class="animationbutt123" ng-click="showActionsheet()" class="mappin-div"><img class="pinhome" src="img/map/check.png" /></div>
+        </div>
+          
+        <div onclick="myLocation();" class="mylocationbutton"><i class="ion-navigate locationicon"></i></div>
+          
+      </ion-content>
+  </ion-tab>
+  
+  
+  <!------------------------ TAB FOR THE CAMERA ------------------------>
+  
+  <ion-tab title="Images" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline">
+      <ion-content padding="false" class="has-header" scroll="false">
+      
+        <!-- EDIT CONTENT HERE -->
+        <div>
+          <button class="button camera-button" id="camera-button1" ng-click="takePic()">Take a Picture</button>
+        </div>
+        
+        <div class="cam-imagecontainer">
+          <img class="cameraimage" ng-src="{{picture}}">
+          <div class="nophoto">
+            <span>
+                  Take a photo using the button above
+            <br />or leave this field blank.
+            <br />
+            <br />Please remember to be respectful
+            <br />when taking a photo.
+            <br />
+            <br />The State of Hawai'i allows
+            <br />non-commercial photography
+            <br />in public locations.
+            </span>
+          </div>
+        </div>
+          
+        <!-- END CONTENT -->
+    
+    </ion-content>
+  </ion-tab> 
+  
+  
+  <!------------------------ TAB FOR THE FORMS ------------------------>
+  
+  <ion-tab title="Info" icon-on="ion-ios-list" icon-off="ion-ios-list-outline">
+      <ion-content padding="true" class="has-header" scroll="true">
+      
+        <!-- EDIT CONTENT HERE -->
+          
+          
+              <span class="referpagetext">I am refering</span>
+         
+            <div class="refer-checkboxdiv">
+             <ion-list>
+            <ion-item class="refer-checkbox" ng-repeat="item in itens">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="item.checked" ng-click="updateSelection($index, itens, item.title)">
+                <span class="refer-cb">{{ item.title }}</span>
+                </label>
+            </ion-item>
+        </ion-list>
+        </div>
+          
+          
+          <!-- INDIVIDUAL'S FORM -->
+          
+        <div class="list referform"> 
+            
+          <label class="item item-input item-stacked-label">
+              <span class="input-label">Their Name (if available)</span>
+            <input ng-model='inputVal' ng-blur='saveInput(inputVal)' type="text" placeholder="John Doe" />
+          </label>
+            
+            
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Their Gender</span>
+            <ion-list>
+              <ion-radio ng-model="choice" ng-value="'A'">Female</ion-radio>
+              <ion-radio ng-model="choice" ng-value="'B'">Male</ion-radio>
+            </ion-list>
+          </label>
+            
+          <label class="item item-input item-stacked-label refer-infolabel">        
+          <span class="input-label">MORE INFORMATION</span>
+            </label>      
+              
+          <label class="item item-input item-staced-label refer-infofield">
+            <textarea rows="8" placeholder="Please describe the circumstance of the person."></textarea>
+          </label>
+          
+        </div>
+          
+          
+        <!-- INDIVIDUAL'S FORM -->
+          
+        <div class="list referform"> 
+            
+          <label class="item item-input item-stacked-label">
+              <span class="input-label">Number of Adults</span>
+            <input ng-model='inputVal' ng-blur='saveInput(inputVal)' type="text" placeholder="123" />
+          </label>
+            
+            
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Number of Children</span>
+            <input ng-model='inputVal' ng-blur='saveInput(inputVal)' type="text" placeholder="123" />
+            </label>
+            
+          <label class="item item-input item-stacked-label refer-infolabel">        
+          <span class="input-label">MORE INFORMATION</span>
+            </label>      
+              
+          <label class="item item-input item-staced-label refer-infofield">
+            <textarea rows="8" placeholder="Please describe the circumstance of the person."></textarea>
+          </label>
+            
+        </div>
+
+        <!-- END CONTENT -->
+    
+    </ion-content>
+      
+  </ion-tab>
+  
+  
+  <!------------------------ TAB FOR THE SUBMIT ------------------------>
+  
+  <ion-tab title="Submit" icon-on="ion-checkmark" icon-off="ion-checkmark" class="tabsubmitbutton">
+    <ion-content padding="true" class="has-header submitform" scroll="false">
+    
+      <!-- EDIT CONTENT HERE -->
+      <div class="submitinfo">
+        <p>Your contact information is not required, <b>but preffered.</b></p> <br>
+        
+        <p>By entering your details and location, our staff will be notified of the person in need and will arrange help. To ensure all requests for assistance are genuine please allow us to collect your contact information.</p><br>
+        
+        <ion-list>
+          <ion-checkbox class="allowbut" ng-model="filter.red">Allow us to collect your information</ion-checkbox>
+        </ion-list>
+        
+      </div>
+        
+      <!-- <a ng-click='submitForm()' >Submit</a> -->
+      <br>
+      
+      <div ng-class="submitPrompt" class="submitcomplete submitinfo">Thank you <br> your referral has been submitted.</div>
+      
+      <a ng-click='submitForm()'>
+        <div class="bar bar-footer finsubmitbutton">
+          <div class="submit-text">SUBMIT INFORMATION</div>
+        </div>
+      </a>
+      <!-- END CONTENT -->
+  
+    </ion-content>
+  </ion-tab>
+
+</ion-tabs>
+
+</ion-view>
+

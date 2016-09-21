@@ -9,9 +9,9 @@
 
 ### How to run this repository
 1. Clone the repository 
-2. Install Node.js
-3. In node js command line  ```$ npm install -g cordova ionic``` 
+2. Install Node.js from ```https://nodejs.org/en/```
+3. In the Node.js command line  ```$ npm install -g cordova ionic``` 
 4. In a command line move to the project directory and run ```ionic serve```
 5. A window should open in your default browswer with the application running
 6. We recommend that you resize your window to simulate a mobile device
-7. For map functionaly, provide your own google map api key into the ```index.html``` line 48
+7. For map functionality, provide your own google map api key into the ```index.html``` line 48
